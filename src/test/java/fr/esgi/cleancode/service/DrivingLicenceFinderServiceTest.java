@@ -49,5 +49,6 @@ class DrivingLicenceFinderServiceTest {
 
         assertThat(actual).isEmpty();
         verify(database).findById(drivingLicenceID);
-        verifyNoMoreInteractions(database);    }
+        verifyNoMoreInteractions(database);
+    }
 }
