@@ -41,8 +41,8 @@ public class DrivingLicenceCreatorServiceTest {
                 .id(generatedUUID)
                 .build();
 
-        when(database.save(generatedUUID, any())).thenReturn(drivingLicence);
         when(generationService.generateNewDrivingLicenceId()).thenReturn(generatedUUID);
+        when(database.save(eq(generatedUUID), any(DrivingLicence.class))).thenReturn(drivingLicence);
 
         final var actual = service.createAndRegisterDrivingLicenceWithSSN(socialSecurityNumber);
 

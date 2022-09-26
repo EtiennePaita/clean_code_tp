@@ -14,10 +14,9 @@ public class DrivingLicenceCreatorService {
 
     public DrivingLicence createAndRegisterDrivingLicenceWithSSN(String socialSecurityNumber) throws InvalidDriverSocialSecurityNumberException {
         checkSSNValidity(socialSecurityNumber);
-        return null;
+        return saveDrivingLicence(createDrivingLicence(socialSecurityNumber));
     }
 
-    //void checkSSNValidity()
     private void checkSSNValidity(String socialSecurityNumber) throws InvalidDriverSocialSecurityNumberException {
         if((socialSecurityNumber == null) || (socialSecurityNumber.length() != 15) || !socialSecurityNumber.matches("^[0-9]+$")) {
             throw new InvalidDriverSocialSecurityNumberException("Invalid Social Security Number");
@@ -25,10 +24,13 @@ public class DrivingLicenceCreatorService {
     }
 
     private DrivingLicence createDrivingLicence(String socialSecurityNumber) {
-        return null;
+        return DrivingLicence.builder()
+                .id(generationService.generateNewDrivingLicenceId())
+                .driverSocialSecurityNumber(socialSecurityNumber)
+                .build();
     }
 
     private DrivingLicence saveDrivingLicence(DrivingLicence newDrivingLicence) {
-        return null;
+        return database.save(newDrivingLicence.getId(), newDrivingLicence);
     }
 }
