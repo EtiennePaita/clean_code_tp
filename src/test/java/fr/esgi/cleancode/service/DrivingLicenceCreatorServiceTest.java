@@ -57,7 +57,7 @@ public class DrivingLicenceCreatorServiceTest {
 
     @ParameterizedTest
     @NullAndEmptySource
-    @ValueSource(strings = {"12345678908765","12345678908765787","ABC","1234567890876AE"})
+    @ValueSource(strings = {"12345678908765","12345678908765787","ABC","1234567890876AE","azertyuiopmlkjh"})
     void shouldNotCreateDrivingLicence(String invalidSocialSecurityNumber) {
 
         Exception exception = assertThrows(InvalidDriverSocialSecurityNumberException.class, () -> {

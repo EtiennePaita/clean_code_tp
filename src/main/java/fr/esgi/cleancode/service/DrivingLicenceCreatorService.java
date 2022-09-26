@@ -13,18 +13,22 @@ public class DrivingLicenceCreatorService {
     private final DrivingLicenceIdGenerationService generationService;
 
     public DrivingLicence createAndRegisterDrivingLicenceWithSSN(String socialSecurityNumber) throws InvalidDriverSocialSecurityNumberException {
-
+        checkSSNValidity(socialSecurityNumber);
+        return null;
     }
 
-    private boolean checkSSNValidity(String socialSecurityNumber) throws InvalidDriverSocialSecurityNumberException {
-
+    //void checkSSNValidity()
+    private void checkSSNValidity(String socialSecurityNumber) throws InvalidDriverSocialSecurityNumberException {
+        if((socialSecurityNumber == null) || (socialSecurityNumber.length() != 15) || !socialSecurityNumber.matches("^[0-9]+$")) {
+            throw new InvalidDriverSocialSecurityNumberException("Invalid Social Security Number");
+        }
     }
 
     private DrivingLicence createDrivingLicence(String socialSecurityNumber) {
-
+        return null;
     }
 
-    private boolean saveDrivingLicence(DrivingLicence newDrivingLicence) {
-
+    private DrivingLicence saveDrivingLicence(DrivingLicence newDrivingLicence) {
+        return null;
     }
 }
