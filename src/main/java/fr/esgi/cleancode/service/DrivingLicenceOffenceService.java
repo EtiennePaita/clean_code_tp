@@ -32,11 +32,7 @@ public class DrivingLicenceOffenceService {
         int newAvailablePoints = drivingLicence.getAvailablePoints() - pointToRemove;
         if (newAvailablePoints < 0 ) newAvailablePoints = 0;
 
-        return DrivingLicence.builder()
-                .id(drivingLicence.getId())
-                .driverSocialSecurityNumber(drivingLicence.getDriverSocialSecurityNumber())
-                .availablePoints( newAvailablePoints)
-                .build();
+        return drivingLicence.withAvailablePoints(newAvailablePoints);
     }
 
     private DrivingLicence saveLicence(DrivingLicence drivingLicence) {
